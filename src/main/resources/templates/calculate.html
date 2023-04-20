@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculation</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0-alpha2/dist/css/bootstrap.css}">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <form align="center" action="/" method="get">
+
+        <label for="maxY">Найбільше значення функції</label><br>
+        <input type="number" name="maxY" id="maxY" th:value="${maxY}" disabled><br><br>
+        <label for="minY">Найменше значення функції:</label><br>
+        <input type="number" name="minY" th:value="${minY}" id="minY" disabled><br><br>
+        <label for="maxX">Аргумент x найбільшого значення функції</label><br>
+        <input type="number" name="maxX" th:value="${maxX}" id="maxX" disabled><br><br>
+        <label>Аргумент x найменшого значення функції</label><br>
+        <input type="number" name="minX" th:value="${minX}" id="minX" disabled><br><br>
+        <label for="sum">Сумма елементів</label><br>
+        <input type="number" name="sum" th:value="${sum}" id="sum" disabled><br><br>
+        <label for="average">Середнє арифметичне</label><br>
+        <input type="number" name="average" value="" th:value="${average}" id="average" disabled><br><br>
+        <input type="submit" class="btn btn-outline-primary btn-sm" value="Назад">
+    </form>
+
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">X</th>
+                        <th scope="col">Y</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr th:each="calculation: ${result}">
+                        <td th:text="${calculation.x()}"></td>
+                        <td th:text="${calculation.y()}"></td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+        </div>
+
+</body>
+</html>
